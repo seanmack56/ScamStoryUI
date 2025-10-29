@@ -1,0 +1,143 @@
+/* --- Basic Styling --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 700px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+/* --- Screen Management --- */
+.screen {
+    display: none; /* Hide all screens by default */
+    padding: 30px 40px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+.screen.active {
+    display: block; /* Show only the active screen */
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Headers & Form Elements --- */
+h2 {
+    color: #1a535c;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #495057;
+}
+.form-group label .optional {
+    font-weight: 400;
+    color: #888;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    box-sizing: border-box; /* Important for padding to work correctly */
+    font-size: 1rem;
+}
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* --- Buttons --- */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 20px;
+}
+button {
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-grow: 1; /* Makes buttons share space */
+}
+
+/* Primary Button (Submit/Next) */
+button[type="submit"], .btn-primary {
+    background-color: #1a535c;
+    color: white;
+}
+button[type="submit"]:hover, .btn-primary:hover {
+    background-color: #16464f;
+}
+
+/* Secondary Button (Modify/Back) */
+.btn-secondary {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ddd;
+}
+.btn-secondary:hover {
+    background-color: #e9e9e9;
+}
+
+/* --- Story & Synthesis Output --- */
+.output-box {
+    background: #fdfdfd;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    min-height: 150px;
+    white-space: pre-wrap; /* Preserves line breaks in the story */
+    line-height: 1.7;
+    font-family: "Georgia", serif;
+}
+
+.final-story-preview {
+    background: #fafafa;
+    border: 1px dashed #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    font-style: italic;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.loading-indicator {
+    text-align: center;
+    font-weight: 600;
+    color: #1a535c;
+    padding: 20px;
+    display: none; /* Hidden by default */
+}
