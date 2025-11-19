@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sextortion Prevention & Response Tool</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <div class="container">
+
+        <div id="screen-input" class="screen active">
+            <h2>Create Your Story</h2>
+            <p>
+                <strong>Drag and drop</strong> items from the left toolbox into the boxes on the right to build your character and setting.
+                <a href="#" id="link-resources">View Support Resources</a>
+            </p>
+
+            <div class="builder-layout">
+                
+                <div class="sidebar-toolbox">
+                    <h3>Toolbox</h3>
+                    <p class="hint">Expand categories & drag items &rarr;</p>
+
+                    <div class="toolbox-category">
+                        <h4>Identity & Traits</h4>
+                        
+                        <details class="toolbox-sub" open>
+                            <summary>Age Groups</summary>
+                            <div class="sub-content">
+                                <div class="draggable" draggable="true" data-type="age">6 years old</div>
+                                <div class="draggable" draggable="true" data-type="age">7 years old</div>
+                                <div class="draggable" draggable="true" data-type="age">8 years old</div>
+                                <div class="draggable" draggable="true" data-type="age">9 years old</div>
+                                <div class="draggable" draggable="true" data-type="age">10 years old</div>
+                                <div class="draggable" draggable="true" data-type="age">11 years old</div>
+                                <div class="draggable" draggable="true" data-type="age">12 years old</div>
+                                <div class="draggable" draggable="true" data-type="age">13 years old</div>
+                                <div class="draggable" draggable="true" data-type="age">14 years old</div>
+                                <div class="draggable" draggable="true" data-type="age">15 years old</div>
+                                <div class="draggable" draggable="true" data-type="age">16 years old</div>
+                                <div class="draggable" draggable="true" data-type="age">17 years old</div>
+                                <div class="draggable" draggable="true" data-type="age">18 years old</div>
+                                <div class="draggable" draggable="true" data-type="age">19 years old</div>
+                                <div class="draggable" draggable="true" data-type="age">20-29 years old</div>
+                                <div class="draggable" draggable="true" data-type="age">30-39 years old</div>
+                                <div class="draggable" draggable="true" data-type="age">40-49 years old</div>
+                                <div class="draggable" draggable="true" data-type="age">50+ years old</div>
+                            </div>
+                        </details>
+
+                        <details class="toolbox-sub">
+                            <summary>Religion / Beliefs</summary>
+                            <div class="sub-content">
+                                <div class="draggable" draggable="true" data-type="trait">Christian</div>
+                                <div class="draggable" draggable="true" data-type="trait">Muslim</div>
+                                <div class="draggable" draggable="true" data-type="trait">Jewish</div>
+                                <div class="draggable" draggable="true" data-type="trait">Hindu</div>
+                                <div class="draggable" draggable="true" data-type="trait">Buddhist</div>
+                                <div class="draggable" draggable="true" data-type="trait">Sikh</div>
+                                <div class="draggable" draggable="true" data-type="trait">Indigenous Spirituality</div>
+                                <div class="draggable" draggable="true" data-type="trait">Atheist</div>
+                                <div class="draggable" draggable="true" data-type="trait">Agnostic</div>
+                                <div class="draggable" draggable="true" data-type="trait">Spiritual but not religious</div>
+                            </div>
+                        </details>
+
+                        <details class="toolbox-sub">
+                            <summary>Personality & Hobbies</summary>
+                            <div class="sub-content">
+                                <div class="draggable" draggable="true" data-type="trait">Trusting</div>
+                                <div class="draggable" draggable="true" data-type="trait">Lonely</div>
+                                <div class="draggable" draggable="true" data-type="trait">Popular</div>
+                                <div class="draggable" draggable="true" data-type="trait">Anxious</div>
+                                <div class="draggable" draggable="true" data-type="trait">Confident</div>
+                                <div class="draggable" draggable="true" data-type="trait">Gamer</div>
+                                <div class="draggable" draggable="true" data-type="trait">Artist</div>
+                                <div class="draggable" draggable="true" data-type="trait">Athlete</div>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div class="toolbox-category">
+                        <h4>Story Context</h4>
+                        <details class="toolbox-sub">
+                            <summary>Where & When</summary>
+                            <div class="sub-content">
+                                <div class="draggable" draggable="true" data-type="setting">At School</div>
+                                <div class="draggable" draggable="true" data-type="setting">Bedroom (Late Night)</div>
+                                <div class="draggable" draggable="true" data-type="setting">Social Media App</div>
+                                <div class="draggable" draggable="true" data-type="setting">Gaming Chat Lobby</div>
+                                <div class="draggable" draggable="true" data-type="setting">Summer Break</div>
+                                <div class="draggable" draggable="true" data-type="setting">After a Party</div>
+                                <div class="draggable" draggable="true" data-type="setting">Family Vacation</div>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <div class="main-builder">
+                    <form id="story-form">
+                        <div class="section-box">
+                            <h3>1. The Basics</h3>
+                            <div class="form-row">
+                                <div class="form-group" style="width: 100%;">
+                                    <label for="gender">Gender *</label>
+                                    <input type="text" id="gender" name="gender" required placeholder="e.g. Girl, Boy, Non-binary">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="outcome">Outcome *</label>
+                                <select id="outcome" name="outcome" required>
+                                    <option value="" disabled selected>-- Select Outcome --</option>
+                                    <option value="good">Positive/Helpful</option>
+                                    <option value="bad">Challenging/Negative</option>
+                                    <option value="random">Surprise Me</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="section-box">
+                            <h3>2. Identity & Traits</h3>
+                            <p class="instruction">Drop <strong>Age</strong>, Religion, and Personality here.</p>
+                            <div id="drop-zone-traits" class="drop-zone" data-accept="trait">
+                                <span class="placeholder-text">Drop identity items here</span>
+                            </div>
+                        </div>
+
+                        <div class="section-box">
+                            <h3>3. Story Setting</h3>
+                            <p class="instruction">Drop where and when this happens here.</p>
+                            <div id="drop-zone-setting" class="drop-zone" data-accept="setting">
+                                <span class="placeholder-text">Drop setting info here</span>
+                            </div>
+                        </div>
+
+                        <div class="button-group">
+                            <button type="submit">Generate Story</button>
+                        </div>
+                        <div id="loading-story" class="loading-indicator">Generating your story...</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="screen-story" class="screen">
+            <h2>Your Generated Story</h2>
+            <div id="story-output" class="output-box"></div>
+            <div class="button-group">
+                <button id="btn-modify" type="button" class="btn-secondary">Modify Inputs</button>
+                <button id="btn-finalize" type="button" class="btn-primary">Finalize & Discuss</button>
+            </div>
+        </div>
+
+        <div id="screen-synthesis" class="screen">
+            <h2>Discuss Your Story</h2>
+            <form id="synthesis-form">
+                <div class="form-group">
+                    <label for="synthesis-tone">Discussion Tone *</label>
+                    <select id="synthesis-tone" name="synthesis-tone" required>
+                        <option value="true-crime">True Crime Podcast</option>
+                        <option value="news-report">News Report</option>
+                        <option value="audiobook">Audiobook</option>
+                        <option value="supportive-friend">Supportive Friend</option>
+                        <option value="therapist">Therapist</option>
+                    </select>
+                </div>
+                <div id="final-story-preview" class="final-story-preview"></div>
+                <div class="button-group">
+                    <button id="btn-back-to-story" type="button" class="btn-secondary">Back</button>
+                    <button type="submit">Start Discussion</button>
+                </div>
+                <div id="loading-synthesis" class="loading-indicator">Synthesizing discussion...</div>
+            </form>
+            <div id="synthesis-output" class="output-box" style="display: none;"></div>
+        </div>
+
+        <div id="screen-resources" class="screen">
+            <h2>Support Resources</h2>
+            <div class="resources-list">
+                <h3>Canadian Resources</h3>
+                <ul>
+                    <li><strong>NeedHelpNow.ca:</strong> Info on stopping the spread of images.</li>
+                    <li><strong>Kids Help Phone:</strong> Call 1-800-668-6868 or text CONNECT to 686868.</li>
+                    <li><strong>Cybertip.ca:</strong> Reporting online sexual exploitation.</li>
+                </ul>
+            </div>
+            <div class="button-group">
+                <button id="btn-back-to-input" type="button" class="btn-secondary">Back</button>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

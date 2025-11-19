@@ -1,0 +1,183 @@
+/* --- Basic Styling --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #eef2f5;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    /* Changed: align-items from center to flex-start to allow long page scrolling */
+    align-items: flex-start; 
+    min-height: 100vh;
+    padding: 40px 20px; /* Added top padding since we aren't centering vertically anymore */
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 950px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    overflow: visible; /* Changed from hidden to visible so drop shadows don't get cut off */
+    margin-bottom: 50px; /* Room at bottom for scrolling */
+}
+
+/* --- Screen Management --- */
+.screen { display: none; padding: 30px 40px; animation: fadeIn 0.5s ease-in-out; }
+.screen.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* --- Typography & Forms --- */
+h2 { color: #1a535c; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; margin-top: 0; }
+h3 { color: #444; font-size: 1.1rem; margin-top: 0; }
+h4 { font-size: 0.9rem; color: #666; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+
+.form-group { margin-bottom: 15px; }
+.form-row { display: flex; gap: 20px; }
+
+label { display: block; font-weight: 600; margin-bottom: 5px; color: #495057; }
+input, select, textarea { width: 100%; padding: 10px; border: 1px solid #ced4da; border-radius: 6px; box-sizing: border-box; }
+
+/* --- Buttons --- */
+.button-group { display: flex; justify-content: space-between; gap: 15px; margin-top: 20px; }
+button { padding: 12px 20px; font-size: 1rem; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; flex-grow: 1; }
+.btn-primary, button[type="submit"] { background-color: #1a535c; color: white; }
+.btn-primary:hover, button[type="submit"]:hover { background-color: #16464f; }
+.btn-secondary { background-color: #f0f0f0; color: #333; border: 1px solid #ddd; }
+.btn-secondary:hover { background-color: #e9e9e9; }
+
+/* --- Outputs & Misc --- */
+.output-box { background: #fdfdfd; border: 1px solid #eee; border-radius: 8px; padding: 20px; margin-top: 20px; min-height: 150px; white-space: pre-wrap; font-family: "Georgia", serif; }
+.final-story-preview { background: #fafafa; border: 1px dashed #ccc; padding: 15px; border-radius: 8px; font-style: italic; max-height: 150px; overflow-y: auto; margin-bottom: 20px; }
+.loading-indicator { text-align: center; font-weight: 600; color: #1a535c; padding: 20px; display: none; }
+#link-resources { color: #1a535c; font-weight: 600; text-decoration: none; margin-left: 10px; }
+#link-resources:hover { text-decoration: underline; }
+
+/* =========================================
+   DRAG & DROP BUILDER STYLING
+   ========================================= */
+
+.builder-layout {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+    /* UPDATED: Removed fixed height, added alignment so sidebar doesn't stretch */
+    align-items: flex-start; 
+}
+
+/* Left Sidebar (Scrollable Toolbox) */
+.sidebar-toolbox {
+    width: 35%;
+    background: #f0f2f5;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    
+    /* UPDATED: Sticky Positioning */
+    position: sticky;
+    top: 20px; /* Stays 20px from top of window */
+    max-height: 85vh; /* Max height is 85% of the viewport height */
+    overflow-y: auto; /* Internal scroll only if needed */
+}
+
+.sidebar-toolbox .hint { font-size: 0.8rem; color: #888; margin-bottom: 15px; }
+.toolbox-category { margin-bottom: 20px; }
+
+/* Custom Scrollbar for Webkit */
+.sidebar-toolbox::-webkit-scrollbar { width: 8px; }
+.sidebar-toolbox::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
+.sidebar-toolbox::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+.sidebar-toolbox::-webkit-scrollbar-thumb:hover { background: #bbb; }
+
+/* Accordion Styling */
+details.toolbox-sub { margin-bottom: 10px; background: white; border-radius: 6px; border: 1px solid #ddd; overflow: hidden; }
+summary { padding: 10px; cursor: pointer; font-weight: 600; background: #fff; color: #444; list-style: none; user-select: none; }
+summary:hover { background: #f9f9f9; }
+summary::after { content: '+'; float: right; font-weight: bold; }
+details[open] summary::after { content: '-'; }
+.sub-content { padding: 10px; background: #fbfbfb; border-top: 1px solid #eee; }
+
+/* Draggable Items */
+.draggable {
+    background: #e0f7fa; 
+    border: 1px solid #b2ebf2;
+    color: #006064;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    cursor: grab;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+.draggable:hover { 
+    background: #b2ebf2; 
+    transform: translateX(3px); 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.draggable:active { cursor: grabbing; }
+
+/* Right Main Area */
+.main-builder { 
+    width: 65%; 
+    display: flex; 
+    flex-direction: column; 
+    /* UPDATED: Removed overflow-y: auto so it uses the page scroll */
+}
+
+.section-box { margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
+.instruction { font-size: 0.85rem; color: #666; margin-bottom: 10px; }
+
+/* Drop Zones */
+.drop-zone {
+    min-height: 100px;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    background: #fafafa;
+    transition: background 0.2s, border-color 0.2s;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+.drop-zone.drag-over {
+    background: #e0f7fa;
+    border-color: #1a535c;
+}
+
+/* Items Inside Drop Zones */
+.dropped-tag {
+    background: #1a535c;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    animation: popIn 0.2s ease;
+}
+@keyframes popIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+.remove-tag { margin-left: 8px; cursor: pointer; font-weight: bold; color: #aed9e0; }
+.remove-tag:hover { color: white; }
+
+.placeholder-text { color: #aaa; font-style: italic; pointer-events: none; user-select: none; width: 100%; text-align: center; margin-top: 10px; }
+.drop-zone:not(:empty) .placeholder-text { display: none; }
+
+/* Mobile Responsiveness */
+@media (max-width: 700px) {
+    .builder-layout { flex-direction: column; height: auto; }
+    .sidebar-toolbox { 
+        width: 100%; 
+        position: static; /* Disable sticky on mobile */
+        max-height: 300px; /* Give it a fixed height on mobile */
+    }
+    .main-builder { width: 100%; }
+    .drop-zone { min-height: 60px; }
+}
